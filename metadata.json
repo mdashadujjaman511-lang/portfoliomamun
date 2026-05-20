@@ -1,0 +1,6 @@
+{
+  "name": "Designer Portfolio",
+  "description": "Premium interactive portfolio and management platform for a professional Graphics Designer.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

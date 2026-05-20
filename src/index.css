@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-brand-purple: #9333ea;
+  --color-brand-cyan: #0891b2;
+  --color-brand-neon: #a855f7;
+  --color-dark-bg: #03000a;
+  --color-dark-card: #0c0819;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #020005;
+}
+::-webkit-scrollbar-thumb {
+  background: #1d1233;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #392467;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(12, 8, 25, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.1);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(12, 8, 25, 0.65);
+  border-color: rgba(139, 92, 246, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.15);
+}
+
+/* Noise overlay effect */
+.noise-overlay {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.02"/%3E%3C/svg%3E') repeat;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Scrolling marquee keyframes for auto slider */
+@keyframes infiniteScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-flex;
+  animation: infiniteScroll 30s linear infinite;
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+/* Spotlights */
+.ambient-glow-1 {
+  background: radial-gradient(circle at 50% 50%, rgba(147, 51, 234, 0.15), transparent 60%);
+}
+.ambient-glow-2 {
+  background: radial-gradient(circle at 50% 50%, rgba(8, 145, 178, 0.15), transparent 60%);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #030006;
+}
+
+body {
+  color: #f3f4f6;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
